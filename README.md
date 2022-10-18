@@ -11,3 +11,6 @@ npm run build
 
 Сборка и Запуск сервера
 npm run start
+
+Разработка
+npm run dev
