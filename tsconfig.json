@@ -2,7 +2,6 @@
     "compilerOptions": {
         "strict": true,
         "declaration": true,
-        "allowJs": true,
         "module": "ES2020",
         "target": "ES2020",
         "isolatedModules": true,
@@ -13,7 +12,10 @@
         "strictNullChecks": true,
         "baseUrl": ".",
         "paths": {
-        "*": ["*", "types/*"]
+            "*": [
+                "*",
+                "types/*"
+            ]
         },
     }
-  }
+}
