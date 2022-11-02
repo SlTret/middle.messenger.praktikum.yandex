@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "declaration": true,
+        "allowJs": true,
+        "module": "ES2020",
+        "target": "ES2020",
+        "isolatedModules": true,
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "sourceMap": true,
+        "strictNullChecks": true,
+        "baseUrl": ".",
+        "paths": {
+        "*": ["*", "types/*"]
+        },
+    },
+  
+  }

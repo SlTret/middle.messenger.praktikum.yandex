@@ -1,0 +1,25 @@
+$background-primary:#fff;
+.user-info {
+    width: 100%;
+    height: 40px;
+    background-color: $background-primary;
+    display: inline-flex;
+    border-bottom: 0.1px solid #757575;
+}
+
+.user-info__name {
+    width: 50%;
+    background-color: $background-primary;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.user-info__value {
+    width: 50%;
+    background-color: $background-primary;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    opacity: 0.5;
+}
