@@ -1,205 +1,206 @@
-$font-primary: 'Roboto';
+$font-primary: "Roboto";
 $color-primary: #333;
 $background-primary: #fff;
 $chats: #fff;
-$messages-background: rgb(143, 138, 138);
-$messages-list-background: rgb(243, 243, 243);
+$messages-background: rgb(143 138 138);
+$messages-list-background: rgb(243 243 243);
 $chats-profile-background: #4b9479;
 $chats-profile-hovered: #4b9479;
 $messages-prifile-background: #4b9479;
 $messages-enter-background: #4b9479;
 $chats-search-background: #eee;
 $message-item-color: #eee;
-$message-item-header: rgb(177, 177, 177);
+$message-item-header: rgb(177 177 177);
 $message-color: #2d7c5fab;
 $title-font-size: 30px;
-$search-focus: #04AA6D;
-$shadow-color:rgb(80, 80, 80);
+$search-focus: #04aa6d;
+$shadow-color:rgb(80 80 80);
 $dark-color: #757575;
+
 .chats__list {
-    width: 100%;
-    height: 100%;
-    background-color: $messages-list-background;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    box-shadow: 0px 5px 5px $shadow-color;
+  width: 100%;
+  height: 100%;
+  background-color: $messages-list-background;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-shadow: 0 5px 5px $shadow-color;
 }
 
 .chat {
-    width: 100vw;
-    height: 100vh;
-    background-color: $background-primary;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+  width: 100vw;
+  height: 100vh;
+  background-color: $background-primary;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .chats {
-    width: 30%;
-    height: 100%;
-    background-color: $chats;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    box-shadow: 0px 5px 5px $shadow-color;
-    z-index: 1;
+  width: 30%;
+  height: 100%;
+  background-color: $chats;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-shadow: 0 5px 5px $shadow-color;
+  z-index: 1;
 }
 
 .chats__profile {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: flex-start;
-    background-color: $chats-profile-background
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: flex-start;
+  background-color: $chats-profile-background;
 }
 
 .chats__info {
-    width: calc(100% - 110px);
-    height: 70px;
-    background-color: $chats-profile-hovered;
+  width: calc(100% - 110px);
+  height: 70px;
+  background-color: $chats-profile-hovered;
 }
 
 .search {
-    height: 50px;
-    width: 100%;
-    background-color: $chats-search-background;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+  height: 50px;
+  width: 100%;
+  background-color: $chats-search-background;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .search__input {
-    width: 80%;
-    height: 100%;
-    border: none;
-    border-bottom: 1px solid $dark-color;
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: 400;
-    color: $dark-color;
-    background-color: $chats-search-background;
-    background-clip: padding-box;
-    text-align: center;
+  width: 80%;
+  height: 100%;
+  border: none;
+  border-bottom: 1px solid $dark-color;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  color: $dark-color;
+  background-color: $chats-search-background;
+  background-clip: padding-box;
+  text-align: center;
 }
 
 .search__btn {
-    width: 20%;
-    height: 100%;
-    display: flex;
-    color: $dark-color;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px solid $dark-color;
-    border-bottom: 1px solid $dark-color;
-    background-color: #cac8c8;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  color: $dark-color;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid $dark-color;
+  border-bottom: 1px solid $dark-color;
+  background-color: #cac8c8;
 }
 
 .search__btn:hover {
-    color: #fff;
-    background-color: $dark-color;
-    cursor: pointer;
+  color: #fff;
+  background-color: $dark-color;
+  cursor: pointer;
 }
 
 .search__input::placeholder {
-    color: $color-primary;
-    opacity: 0.3;
+  color: $color-primary;
+  opacity: 0.3;
 }
 
 .search__input:focus {
-    outline: 0;
-    border-bottom: 1px solid $search-focus;
-    background-color: $background-primary;
+  outline: 0;
+  border-bottom: 1px solid $search-focus;
+  background-color: $background-primary;
 }
 
 .messages {
-    width: 70%;
-    height: 100%;
-    background-color: $messages-background;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+  width: 70%;
+  height: 100%;
+  background-color: $messages-background;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .messages__profile {
-    color: $chats;
-    width: 100%;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: $messages-prifile-background;
+  color: $chats;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: $messages-prifile-background;
 }
 
 .messages__list {
-    width: 100%;
-    height: calc(100% - 140px);
-    background-color: $messages-list-background;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
+  width: 100%;
+  height: calc(100% - 140px);
+  background-color: $messages-list-background;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
 .messages__item {
-    width: 80%;
-    height: 140px;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    border-radius: 25px;
-    border: 2px solid $message-color;
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $dark-color;
+  width: 80%;
+  height: 140px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-radius: 25px;
+  border: 2px solid $message-color;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $dark-color;
 }
 
 .messages__plane {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: $messages-enter-background;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: $messages-enter-background;
 }
 
 .messages__input {
-    width: calc(100% - 120px);
-    height: 70%;
-    border: none;
-    border-top: 1px solid $dark-color;
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: 400;
-    color: $dark-color;
-    background-color: $chats-search-background;
-    background-clip: padding-box;
-    text-align: center;
+  width: calc(100% - 120px);
+  height: 70%;
+  border: none;
+  border-top: 1px solid $dark-color;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  color: $dark-color;
+  background-color: $chats-search-background;
+  background-clip: padding-box;
+  text-align: center;
 }
 
 .messages__input:focus {
-    outline: 0;
-    background-color: $background-primary;
+  outline: 0;
+  background-color: $background-primary;
 }
 
 .action-btn {
-    width: 60px;
-    height: 100%;
-    display: flex;
-    border: none;
-    color: #eee;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid $dark-color;
-    background-color: $chats-profile-background;
+  width: 60px;
+  height: 100%;
+  display: flex;
+  border: none;
+  color: #eee;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid $dark-color;
+  background-color: $chats-profile-background;
 }
 
 .action-btn:hover {
-    color: #eee;
-    background-color: $dark-color;
-    cursor: pointer;
+  color: #eee;
+  background-color: $dark-color;
+  cursor: pointer;
 }

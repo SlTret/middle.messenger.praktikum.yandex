@@ -1,34 +1,33 @@
-const METHOD = {
-    GET: 'GET',
-    POST: 'POST',
-    PUT: 'PUT',
-    DELETE: 'DELETE',
-};
+type Method = "GET" | "POST" | "PUT" | "DELETE";
 
-function queryStringify(data:object) {
-    return Object.entries(data).reduce((acc, [key, value], index, arr) =>
-        acc + `${key}=${value}` + (index == arr.length - 1 ? "" : "&"), "?")
+function queryStringify(data: object) {
+    return "?" + Object.entries(data).map(([key, value]) => `${key}=${value}`).join("&")
+}
+
+type Options = {
+    method : Method | null,
+    data: object | null
 }
 
 export class HttpTransport {
 
-    request(url:string, options:{[key:string] : object | string} = {}, timeout = 5000) {
+    request(url: string, options: Options, timeout = 5000) {
         let { method, data } = options;
 
         if (!method) {
-            method = METHOD.GET
+            method = "GET"
             data = {}
         }
 
-        if (method === METHOD.GET)
+        if (method === "GET")
             url += queryStringify(data as object);
 
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
             xhr.timeout = timeout;
             xhr.open(method as string, url, true);
-            xhr.onload = function() {
-                if (method == METHOD.GET) {
+            xhr.onload = function () {
+                if (method == "GET") {
                     if (xhr.status != 200) {
                         reject(new Error(`Ошибка ${xhr.status}: ${xhr.statusText}`))
                     } else {
@@ -47,11 +46,11 @@ export class HttpTransport {
             xhr.onerror = reject;
             xhr.ontimeout = reject;
 
-            if (method === METHOD.GET || !data) {
+            if (method === Method.GET || !data) {
                 xhr.send();
             } else {
                 xhr.send(JSON.stringify(data));
             }
         });
-    };
+    }
 }

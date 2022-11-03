@@ -1,52 +1,53 @@
-$font-primary: 'Roboto';
+$font-primary: "Roboto";
 $color-primary: #333;
 $btn-text-white:#fff;
-$btn-green: #04AA6D;
+$btn-green: #04aa6d;
 $background-primary:#fff;
+
 .text-field {
-    width: 100%;
-    background-color: $background-primary;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+  width: 100%;
+  background-color: $background-primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .text-field__label {
-    font-size: 0.9rem;
-    margin: 10px 0px 0px;
-    background-color: $background-primary;
+  font-size: 0.9rem;
+  margin: 10px 0 0;
+  background-color: $background-primary;
 }
 
 .text-field__input {
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid $color-primary;
-    height: calc(2rem + 2px);
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: $color-primary;
-    background-color: $background-primary;
-    background-clip: padding-box;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $color-primary;
+  height: calc(2rem + 2px);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $color-primary;
+  background-color: $background-primary;
+  background-clip: padding-box;
 }
 
 .text-field__input::placeholder {
-    color: $color-primary;
-    opacity: 0.3;
+  color: $color-primary;
+  opacity: 0.3;
 }
 
 .text-field__input:focus {
-    outline: 0;
-    border-bottom: 1px solid #626363;
-    background-color: $background-primary;
+  outline: 0;
+  border-bottom: 1px solid #626363;
+  background-color: $background-primary;
 }
 
 .text-field__input_invalid {
-    border-bottom: 1px solid rgb(243, 55, 96)
+  border-bottom: 1px solid rgb(243 55 96);
 }
 
 .text-field__input_valid {
-    border-bottom: 1px solid #04AA6D;
+  border-bottom: 1px solid #04aa6d;
 }

@@ -1,41 +1,42 @@
-$font-primary: 'Roboto';
+$font-primary: "Roboto";
 $color-primary: #333;
 $background-primary:#fff;
-$buttons-color: #04AA6D;
-$shadow-color:rgb(105, 105, 105);
+$buttons-color: #04aa6d;
+$shadow-color:rgb(105 105 105);
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 h1 {
-    margin: 40px 0 0;
-    color: $color-primary;
+  margin: 40px 0 0;
+  color: $color-primary;
 }
 
 .login-form {
-    width: 350px;
-    height: 450px;
-    background-color: $background-primary;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 0px 2px $shadow-color;
+  width: 350px;
+  height: 450px;
+  background-color: $background-primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 2px $shadow-color;
 }
 
 .container {
-    width: 100%;
-    height: 150px;
-    background-color: $background-primary;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    font: 100% $font-primary;
+  width: 100%;
+  height: 150px;
+  background-color: $background-primary;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font: 100% $font-primary;
 }
 
 .login-container {
-    width: 60%;
+  width: 60%;
 }

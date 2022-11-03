@@ -9,7 +9,7 @@ export class RenderPage {
     render(component: Component) {
       
         if (!this.root)
-            return;
+            throw new Error("No root element");
 
         if(this.currentPage && this.root.contains(this.currentPage.getContent())) {
             this.root.removeChild(this.currentPage.getContent());

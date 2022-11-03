@@ -1,4 +1,8 @@
 declare module "*.hbs" {
-  const content: Function;
+
+  type Props = { [key: string]: string } 
+  type TemplateFunction = (props: Props) => string
+
+  const content: TemplateFunction;
   export default content;
 }

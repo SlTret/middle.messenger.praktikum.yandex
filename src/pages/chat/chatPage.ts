@@ -17,9 +17,6 @@ export class ChatPage extends Component {
 
                     if (target.tagName == "BUTTON") {
                         const href = target.getAttribute("href");
-                        
-                        console.log("href",href )
-
                         if(href == '404')
                             service.emit(PagesEvents.CHANGE_PAGE, Pages.ERROR_PAGE, {message:"Не туда попали", error: "404"})
                         if(href == '500')

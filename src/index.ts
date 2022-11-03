@@ -53,4 +53,4 @@ service.on(PagesEvents.CHANGE_PAGE, (page: Pages, arg :{[key:string] : string | 
     }
 });
 
-let http = new HttpTransport();
+const http = new HttpTransport();
