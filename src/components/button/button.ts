@@ -4,7 +4,7 @@ import "./button.scss";
 
 export class Button extends Component {
     constructor(props : {[key: string] : object | string }) {
-        super("button",  {...props, attr: {...(props.attr as object),  class: "button"}});
+        super({...props, tagName:"button", attr: {...(props.attr as object),  class: "button"}});
     }
 
     render()  {

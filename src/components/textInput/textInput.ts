@@ -4,7 +4,7 @@ import "./textInput.scss";
 
 export class TextInput extends Component {
     constructor(props : {[key: string] : object | string} ) {
-        super("div", {...props, attr: {...(props.attr as object),  class: "text-field"}});
+        super({...props, tagName:"div", attr: {...(props.attr as object),  class: "text-field"}});
         this.addValidation();
     }
     
@@ -12,7 +12,11 @@ export class TextInput extends Component {
         const {header, name, placeholder, pattern, type} = this.props;
         return this.compile(tpl, {header, name, pattern, placeholder, type});
     }
-    
+    getInputValue() {
+        const elem = this.element.getElementsByTagName("input")[0];
+        return elem.value;
+    }
+
     addValidation() : void {
         const elem = this.element.getElementsByTagName("input")[0];
         if(elem) {

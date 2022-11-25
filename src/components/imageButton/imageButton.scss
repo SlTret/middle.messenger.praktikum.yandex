@@ -1,0 +1,24 @@
+$btn-text-white:#fff;
+$bg-color: #4b9479;
+$bg-color-hover: #616161;
+
+.image-button {
+  background-color: $bg-color;
+  border: none;
+  cursor: pointer;
+  width: 48px;
+  height: 100%;
+  opacity: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-button:hover {
+  background-color: $bg-color-hover;
+}
+
+.image-button__image {
+  width: 32px;
+  height: 32px;
+}

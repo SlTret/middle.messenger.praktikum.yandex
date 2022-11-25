@@ -1,64 +1,93 @@
-import { Pages, PagesEvents, Service } from '../../services/Service';
 import { Button } from '../../components/button/button';
 import { Component } from '../../components/Block';
-import { InfoTextField } from '../../components/infoTextField/infoTextField';
 import tpl from './profilePage.hbs';
 import './profilePage.scss';
+import Router from '../../router/router';
+import EditTextField from '../../components/editTextField/editTextField';
+import Avatar from '../../components/avatar/avatar';
+
+const router = new Router();
 
 export class ProfilePage extends Component {
 
-    constructor(service :Service, props : {[key: string] : object | string }  = {}) {
+    constructor(props: { [key: string]: object | string } = {}) {
 
         props = {
-            emailTextField: new InfoTextField({
+            tagName: "div",
+            avatar: new Avatar(),
+            emailTextField: new EditTextField({
                 fieldName: "Почта",
-                fieldValue: "ivan@yandex.ru",
+                input: "disabled",
+                mapStateToProps: (state: any) => {
+                    return {
+                        fieldValue: state?.user?.email
+                    }
+                }
             }),
-            loginTextField: new InfoTextField({
+            loginTextField: new EditTextField({
                 fieldName: "Логин",
-                fieldValue: "Ivan",
+                input: "disabled",
+                mapStateToProps: (state: any) => {
+                    return {
+                        fieldValue: state?.user?.login
+                    }
+                }
             }),
-            firstNameTextField: new InfoTextField({
+            firstNameTextField: new EditTextField({
                 fieldName: "Имя",
-                fieldValue: "Иван",
+                input: "disabled",
+                mapStateToProps: (state: any) => {
+                    return {
+                        fieldValue: state?.user?.first_name
+                    }
+                }
             }),
-            secondNameTextField: new InfoTextField({
+            secondNameTextField: new EditTextField({
                 fieldName: "Фамилия",
-                fieldValue: "Иванов",
+                input: "disabled",
+                mapStateToProps: (state: any) => {
+                    return {
+                        fieldValue: state?.user?.second_name
+                    }
+                }
             }),
-            chatNameTextField: new InfoTextField({
+            chatNameTextField: new EditTextField({
                 fieldName: "Имя в чате",
-                fieldValue: "Иван",
+                input: "disabled",
+                mapStateToProps: (state: any) => {
+                    return {
+                        fieldValue: state?.user?.display_name
+                    }
+                }
             }),
-            phoneNumberTextField: new InfoTextField({
+            phoneNumberTextField: new EditTextField({
                 fieldName: "Телефон",
-                fieldValue: "+7(000) 000 00 00",
+                input: "disabled",
+                mapStateToProps: (state: any) => {
+                    return {
+                        fieldValue: state?.user?.phone
+                    }
+                }
             }),
             changeUserDataBtn: new Button({
-                attr: { type: 'button'},
+                attr: { type: 'button' },
                 text: 'Изменить данные',
-                events: {
-                    click: () => service.emit(PagesEvents.CHANGE_PAGE, Pages.CHANGE_USER_DATA_PAGE)
-                }
+                events: { click: () => router.go("/settings") }
             }),
             changePasswordBtn: new Button({
                 attr: { type: 'button' },
                 text: 'Изменить пароль',
-                events: {
-                    click: () => service.emit(PagesEvents.CHANGE_PAGE, Pages.CHANGE_PASSWORD_PAGE)
-                }
+                events: { click: () => router.go("/change-password") }
             }),
             returnBtn: new Button({
                 attr: { type: 'button' },
                 text: 'Выйти',
-                events: {
-                    click: () => service.emit(PagesEvents.CHANGE_PAGE, Pages.CHAT_PAGE)
-                }
+                events: { click: () => router.go("/chats") }
             }),
             ...props
         }
 
-        super("div", {...props, attr: {...(props.attr as object),  class: "profile"}});
+        super({ ...props, attr: { ...(props.attr as object), class: "profile" } });
     }
 
     render() {

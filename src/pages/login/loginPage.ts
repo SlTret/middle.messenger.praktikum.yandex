@@ -1,25 +1,29 @@
 import { patterns } from '../../utils/patterns';
 import { Button } from '../../components/button/button';
-import { Component } from '../../components/Block';
+import { Component, Props } from '../../components/Block';
 import { TextInput } from '../../components/textInput/textInput';
 import tpl from './loginPage.hbs';
 import './loginPage.scss';
-import { Pages, PagesEvents, Service } from '../../services/Service';
+import { extendComponent } from '../../store/extendComponent';
+import loginController from '../../controllers/loginController';
+import Router from '../../router/router';
 
-export class LoginPage extends Component {
+const router = new Router(".root");
 
-    loginButton: Button;
+class LoginPage extends Component {
 
-    constructor(service :Service, props: { [key: string]: object | string } = {}) {
+    constructor(props: { [key: string]: object | string } = {}) {
 
         props = {
+            tagName:"form",
             events: {
-                submit:(e:Event) => {
+                submit: (e: Event) => {
                     e.preventDefault();
                     const formData = new FormData(e.target as HTMLFormElement);
                     const data = Object.fromEntries(formData.entries());
-                    console.log(JSON.stringify(data))
-                    service.emit(PagesEvents.CHANGE_PAGE, Pages.CHAT_PAGE)
+
+                    loginController.login(data)
+                    
                     e.preventDefault();
                 }
             },
@@ -28,10 +32,10 @@ export class LoginPage extends Component {
                 text: 'Войти',
             }),
             regBtn: new Button({
-                attr: { type: 'button', href: 'registration' },
+                attr: { type: 'button' },
                 text: 'Регистрация',
                 events: {
-                    click: () => service.emit(PagesEvents.CHANGE_PAGE, Pages.REGISTRATION_PAGE)
+                    click: () =>  router.go('/signup'),
                 }
             }),
             loginTextInput: new TextInput({
@@ -51,13 +55,20 @@ export class LoginPage extends Component {
             ...props
         }
 
-        super("form", {...props, attr: {...(props.attr as object),  class: "login-form"}});
-
-        this.loginButton = props.loginBtn as Button;
-
+        super({ ...props, attr: { ...(props.attr as object), class: "login-form" } });
     }
 
     render() {
         return this.compile(tpl);
     }
 }
+
+function mapUserToProps(state :any) : Props {
+    return {
+        name: state?.user?.name,
+        login: state?.user?.login,
+    };
+}
+
+
+export default extendComponent(LoginPage, mapUserToProps) 

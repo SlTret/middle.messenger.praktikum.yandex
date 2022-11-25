@@ -1,4 +1,3 @@
-import { Pages, PagesEvents, Service } from '../../services/Service';
 import { Button } from '../../components/button/button';
 import { Component } from '../../components/Block';
 import tpl from './errorPage.hbs';
@@ -15,7 +14,6 @@ export class ErrorPage extends Component {
                 attr: { type: 'button' },
                 text: 'Вернуться в чат',
                 events: {
-                    click: () => service.emit(PagesEvents.CHANGE_PAGE, Pages.CHAT_PAGE)
                 }
             }),
             ...props,
