@@ -1,0 +1,17 @@
+$font-primary: "Roboto";
+$color-primary: #333;
+$btn-text-white:#fff;
+$btn-green: #04aa6d;
+
+.button {
+  background-color: $btn-green;
+  color: $btn-text-white;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  height: 32px;
+  opacity: 0.9;
+  margin: 5px;
+  padding: 5px;
+  font: 100% $font-primary;
+}

@@ -1,0 +1,47 @@
+$background-color:#fff;
+$border-color:#757575;
+
+.user-info {
+  width: 100%;
+  height: 40px;
+  background-color: $background-color;
+  display: inline-flex;
+  border: none;
+  border-bottom: 0.1px solid $border-color;
+
+  &__name {
+    width: 50%;
+    background-color: $background-color;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.user-info__edit {
+  width: 50%;
+  background-color: $background-color;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  opacity: 0.5;
+  border: none;
+  text-align: right;
+  font-size: 16px;
+}
+
+.user-info__edit:focus {
+  background-color: $background-color;
+  opacity: 0.8;
+  border: none;
+}
+
+.invalid {
+  background-color: rgb(243 55 96 / 20%);
+  opacity: 0.8;
+}
+
+.valid {
+  background-color: #04aa6d88;
+  opacity: 0.8;
+}

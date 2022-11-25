@@ -1,0 +1,13 @@
+$chats-item_background:#4b9479;
+$chats: #fff;
+
+.chats__item {
+  width: 100%;
+  height: 70px;
+  background-color: $chats-item_background;
+  margin-bottom: 2px;
+  color: $chats;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

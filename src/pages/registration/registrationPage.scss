@@ -1,0 +1,55 @@
+$font-primary: "Roboto";
+$color-primary: #333;
+$background-primary: #fff;
+$buttons-color: #04aa6d;
+$title-font-size: 30px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.registration {
+  width: 350px;
+  height: 664px;
+  background-color: $background-primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 2px rgb(105 105 105);
+}
+
+.registration__btns {
+  width: 100%;
+  height: 130px;
+  background-color: $background-primary;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.registration__title {
+  width: 100%;
+  height: 100px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: $background-primary;
+  color: $font-primary;
+  font-size: $title-font-size;
+}
+
+.registration__info {
+  width: 60%;
+  height: 434px;
+  background-color: $background-primary;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font: 100% $font-primary;
+}

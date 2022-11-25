@@ -1,0 +1,21 @@
+$font-primary: "Roboto";
+$btn-text-white:#fff;
+$chats-profile-hovered: #4b9479;
+$chats-profile-background: #616161;
+
+.chats__profile-btn {
+  width: 110px;
+  height: 70px;
+  color: $btn-text-white;
+  background-color: $chats-profile-hovered;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: none;
+  font-size: 1rem;
+}
+
+.chats__profile-btn:hover {
+  background-color: $chats-profile-background;
+  cursor: pointer;
+}

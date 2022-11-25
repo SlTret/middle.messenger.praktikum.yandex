@@ -5,26 +5,46 @@
     "source": "src/index.html",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "parcel src/index.html",
+        "dev": "parcel src/index.html --no-cache",
         "build": "parcel build src/index.html",
-        "start": "parcel build src/index.html && node src/server/server.js"
+        "start": "parcel build src/index.html && node src/server/server.js",
+        "lint": "eslint src/",
+        "lint:fix": "eslint src/ --fix",
+        "stylelint": "stylelint \"src/**/*.scss\"",
+        "stylelint:fix": "stylelint \"src/**/*.scss\" --fix"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
         "@parcel/transformer-sass": "^2.7.0",
+        "@parcel/transformer-typescript-tsc": "^2.7.0",
+        "@parcel/validator-typescript": "^2.7.0",
+        "@types/hbs": "^4.0.1",
+        "@typescript-eslint/eslint-plugin": "^5.42.0",
+        "@typescript-eslint/parser": "^5.42.0",
         "cssnano": "^4.1.11",
+        "eslint": "^8.26.0",
+        "eslint-config-airbnb": "^19.0.4",
         "handlebars": "^4.7.7",
         "parcel": "^2.7.0",
-        "parcel-plugin-handlebars-precompile": "^1.0.2"
+        "parcel-plugin-handlebars-precompile": "^1.0.2",
+        "stylelint": "^14.14.1",
+        "stylelint-config-standard": "^29.0.0",
+        "typescript": "^4.8.4"
     },
     "dependencies": {
         "@parcel/transformer-sass": "^2.7.0",
+        "@parcel/transformer-typescript-types": "^2.7.0",
+        "@types/uuid": "^8.3.4",
         "express": "^4.18.2",
         "handlebars": "^4.7.7",
         "hbs": "^4.2.0",
         "parcel": "^2.7.0",
         "parcel-plugin-handlebars-precompile": "^1.0.2",
-        "parcel-transformer-hbs": "^1.0.4"
+        "parcel-transformer-hbs": "^1.0.4",
+        "stylelint-config-rational-order": "^0.1.2",
+        "stylelint-order": "^5.0.0",
+        "stylelint-scss": "^4.3.0",
+        "uuid": "^9.0.0"
     }
 }
