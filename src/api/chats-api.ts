@@ -5,11 +5,11 @@ const chatsAPIInstance = new HTTP('/chats');
 
 export class ChatsAPI extends BaseAPI {
   public createChat(data: object) {
-    return chatsAPIInstance.post('', data)
+    return chatsAPIInstance.post('', {data})
   }
 
   public removeChat(data: object) {
-    return chatsAPIInstance.delete('', data)
+    return chatsAPIInstance.delete('', {data})
   }
 
   public getChats() {
@@ -21,11 +21,11 @@ export class ChatsAPI extends BaseAPI {
   }
 
   public addUser(data:object) {
-    return chatsAPIInstance.put(`/users`, data)
+    return chatsAPIInstance.put(`/users`, {data})
   }
 
   public removeUser(data:object) {
-    return chatsAPIInstance.delete(`/users`, data)
+    return chatsAPIInstance.delete(`/users`, {data})
   }
 
 }

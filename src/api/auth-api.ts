@@ -6,7 +6,7 @@ const authAPIInstance = new HTTP('/auth');
 export class AuthAPI extends BaseAPI {
 
   public signin(data: object) {
-    return authAPIInstance.post('/signin', data)
+    return authAPIInstance.post('/signin', {data})
   }
 
   public signout() {
@@ -14,7 +14,7 @@ export class AuthAPI extends BaseAPI {
   }
 
   public signup(data: object) {
-    return authAPIInstance.post('/signup', data)
+    return authAPIInstance.post('/signup', {data})
   }
 
   public getUser() {

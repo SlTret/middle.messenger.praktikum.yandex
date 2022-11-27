@@ -56,7 +56,13 @@ class ChatMessages {
         socket.addEventListener('message', event => {
             const socket = event.currentTarget as WebSocket;
             const chatId = this.getChatBySocket(socket) as string;
-            const data = JSON.parse(event.data);
+
+            let data;
+            try {
+              data = JSON.parse(event.data);
+            } catch (error) {
+                console.log("json from socket parse error", error)
+            }
 
             if(data.type != "message")
                 return;
