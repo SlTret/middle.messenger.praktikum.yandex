@@ -41,7 +41,7 @@ class LoginController {
 
   public getUser(): Promise<boolean> {
     return auth.getUser().then(result => {
-      
+
       const user = JSON.parse(result.response)
       console.log("user id", user.id)
       if (user.id) {

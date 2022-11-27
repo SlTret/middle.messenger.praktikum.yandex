@@ -10,12 +10,12 @@ import Router from "../../router/router";
 
 export class RegistrationPage extends Component {
 
-    signupController:SignUpController = new SignUpController(); 
+    signupController:SignUpController = new SignUpController();
     _router = new Router();
     constructor(props : Record<string, string | object>) {
 
         props = {
-            tagName:"div",
+            tagName:"main",
             events: {
                 submit: (e: Event) => {
                     e.preventDefault();

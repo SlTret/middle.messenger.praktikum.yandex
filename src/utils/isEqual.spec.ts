@@ -34,4 +34,4 @@ describe("isEqual usage", () => {
     assert.equal(isEqual({a:1}, [1,2]), false);
   });
 
-}); 
+});

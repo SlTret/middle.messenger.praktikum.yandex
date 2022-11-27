@@ -1,4 +1,4 @@
-import { Component, Props } from "../Block";
+import { Component } from "../Block";
 import tpl from "./chatItem.hbs";
 import "./chatItem.scss";
 import { v4 as uuidv4 } from 'uuid';
@@ -6,7 +6,7 @@ import { ImageButton } from "../imageButton/imageButton";
 import chatsController from "../../controllers/chatsController";
 
 export class ChatItem extends Component {
-    constructor(props: Props) {
+    constructor(props: Record<string, any>) {
 
         props = {
             tagName: "div",
@@ -14,12 +14,13 @@ export class ChatItem extends Component {
             maskId: uuidv4(),
             events: {
                 click: (e:Event) => {
-                   
+
                     chatsController.setCurrentChat(props.chat.id)
                 }
             },
             removeChatBtn:new ImageButton({
                 imageUrl: require('/src/components/imageButton/icons/close.svg'),
+                altImage:"Копка закрыть",
                 events: {
                     click: (e:Event) => {
                         console.log("removeChatBtn", this.props.chat.id)
@@ -35,7 +36,7 @@ export class ChatItem extends Component {
     }
 
     render() {
-      
+
         const { chatName, maskId, chat , isCurrentChat  } = this.props;
         console.log("render isCurrentChat", isCurrentChat);
         if(isCurrentChat) {

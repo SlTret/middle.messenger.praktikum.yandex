@@ -1,9 +1,23 @@
+import { Indexed } from "src/store/store";
 import { extendComponent } from "../../store/extendComponent";
-import { Component, Props } from "../Block";
+import { Component } from "../Block";
 import tpl from "./editTextField.hbs";
 import "./editTextField.scss";
 
-class EditTextField extends Component {
+export interface State {
+  fieldValue?: string
+}
+
+interface EditTextFieldProps extends State{
+  fieldName:string;
+  pattern?:string;
+  inputName?:string;
+  input?:string;
+  mapStateToProps?: (state:Indexed) => State
+  fieldType?:string;
+}
+
+class EditTextField extends Component<EditTextFieldProps> {
     constructor(props: { [key: string]: object | string }) {
         super({ ...props, tagName: "div", attr: { ...(props.attr as object), class: "user-info" } });
         this.addValidation();
@@ -29,4 +43,8 @@ class EditTextField extends Component {
     }
 }
 
-export default extendComponent(EditTextField, (state :Props) => state) 
+function mapStateToProps(state: Indexed): State {
+    return { fieldValue: "" } ;
+}
+
+export default extendComponent<EditTextFieldProps, State>(EditTextField, mapStateToProps)

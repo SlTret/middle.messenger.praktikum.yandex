@@ -1,14 +1,12 @@
-import { IComponent, Props } from "src/components/Block";
-import store, { StoreEvents } from "../store/store";
+import { Component } from "src/components/Block";
+import store, { Indexed, StoreEvents } from "../store/store";
 import { isEqual } from "../utils/isEqual";
 
-type MapToPropsType = (state: any) => any;
+const extendComponent = <Props extends Indexed, State extends Indexed>(ComponentClass: typeof Component, mapStateToProps: (state: Record<string, any>) => State) => {
+    return class extends ComponentClass<Props> {
+        mapStateToProps: (state: Record<string, any>) => State
+        constructor(props: Props) {
 
-const extendComponent = (ComponentClass: IComponent, mapStateToProps: (state: Props) => Props) => {
-    return class extends ComponentClass {
-        mapStateToProps: MapToPropsType
-        constructor(props: any = {}) {
-           
             if(props?.mapStateToProps) {
                 mapStateToProps = props.mapStateToProps;
                 delete props.mapStateToProps;
@@ -21,12 +19,8 @@ const extendComponent = (ComponentClass: IComponent, mapStateToProps: (state: Pr
             this.mapStateToProps = mapStateToProps;
 
             store.on(StoreEvents.Updated, () => {
-                
-                const newState = this.mapStateToProps(store.getState());
-                
-                console.log("Updated currentState", currentState, store.getState());
 
-                console.log("isEqual", isEqual(currentState, newState), newState);
+                const newState = this.mapStateToProps(store.getState());
 
                 if (!isEqual(currentState, newState)) {
                     console.log("component update");

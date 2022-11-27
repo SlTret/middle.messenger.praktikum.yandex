@@ -15,7 +15,7 @@ class LoginPage extends Component {
     constructor(props: { [key: string]: object | string } = {}) {
 
         props = {
-            tagName:"form",
+            tagName:"main",
             events: {
                 submit: (e: Event) => {
                     e.preventDefault();
@@ -23,7 +23,7 @@ class LoginPage extends Component {
                     const data = Object.fromEntries(formData.entries());
 
                     loginController.login(data)
-                    
+
                     e.preventDefault();
                 }
             },
@@ -55,7 +55,7 @@ class LoginPage extends Component {
             ...props
         }
 
-        super({ ...props, attr: { ...(props.attr as object), class: "login-form" } });
+        super({ ...props, attr: { ...(props.attr as object) } });
     }
 
     render() {
@@ -71,4 +71,4 @@ function mapUserToProps(state :any) : Props {
 }
 
 
-export default extendComponent(LoginPage, mapUserToProps) 
+export default extendComponent(LoginPage, mapUserToProps)

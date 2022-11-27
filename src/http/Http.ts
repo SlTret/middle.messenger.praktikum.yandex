@@ -1,3 +1,5 @@
+import { BASE_URL } from "../api/base-api";
+
 export type Method = "GET" | "POST" | "PUT" | "DELETE";
 
 function queryStringify(data: object) {
@@ -17,7 +19,7 @@ export class HTTP {
     private _url: string;
 
     constructor(url: string) {
-        this._url = url;
+        this._url = BASE_URL + url;
     }
 
     public get(url: string, data: object = {}): Promise<any> {
@@ -91,7 +93,7 @@ export class HTTP {
                 } else {
                     xhr.send(JSON.stringify(data));
                 }
-               
+
             }
         });
     }

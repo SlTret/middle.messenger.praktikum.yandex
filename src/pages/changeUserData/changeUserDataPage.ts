@@ -5,21 +5,27 @@ import EditTextField from '../../components/editTextField/editTextField';
 import tpl from './changeUserDataPage.hbs';
 import './changeUserDataPage.scss';
 import Router from '../../router/router';
-import { extendComponent } from '../../store/extendComponent';
 import usersController from '../../controllers/usersController';
 import Avatar from '../../components/avatar/avatar';
 import { v4 as uuidv4 } from 'uuid';
+import { Indexed } from 'src/store/store';
 
 const router = new Router();
 
-class ChangeUserDataPage extends Component {
+interface Props extends Indexed {
+  tagName?: string;
+  events?: object;
+}
+
+
+class ChangeUserDataPage extends Component<Props> {
 
     constructor(props: any) {
 
         const selectAvatarId = uuidv4()
 
         props = {
-            tagName: "form",
+            tagName: "main",
             events: {
                 submit: (e: Event) => {
                     e.preventDefault();
@@ -47,7 +53,7 @@ class ChangeUserDataPage extends Component {
                 fieldName: "Почта",
                 inputName: 'email',
                 pattern: patterns.email,
-                mapStateToProps: (state: any) => {
+                mapStateToProps: (state: Indexed) => {
                     return {
                         fieldValue: state?.user?.email
                     }
@@ -58,7 +64,7 @@ class ChangeUserDataPage extends Component {
                 inputName: 'login',
                 fieldType: 'text',
                 pattern: patterns.login,
-                mapStateToProps: (state: any) => {
+                mapStateToProps: (state: Indexed) => {
                     return {
                         fieldValue: state?.user?.login
                     }
@@ -69,7 +75,7 @@ class ChangeUserDataPage extends Component {
                 inputName: 'first_name',
                 fieldType: 'text',
                 pattern: patterns.firstName,
-                mapStateToProps: (state: any) => {
+                mapStateToProps: (state: Indexed) => {
                     return {
                         fieldValue: state?.user?.first_name
                     }
@@ -80,7 +86,7 @@ class ChangeUserDataPage extends Component {
                 inputName: 'second_name',
                 fieldType: 'text',
                 pattern: patterns.secondName,
-                mapStateToProps: (state: any) => {
+                mapStateToProps: (state: Indexed) => {
                     return {
                         fieldValue: state?.user?.second_name
                     }
@@ -92,7 +98,7 @@ class ChangeUserDataPage extends Component {
                 inputName: 'phone',
                 fieldType: 'tel',
                 pattern: patterns.phone,
-                mapStateToProps: (state: any) => {
+                mapStateToProps: (state: Indexed) => {
                     return {
                         fieldValue: state?.user?.phone
                     }
@@ -104,7 +110,7 @@ class ChangeUserDataPage extends Component {
                 inputName: 'display_name',
                 fieldType: 'text',
                 pattern: patterns.chatName,
-                mapStateToProps: (state: any) => {
+                mapStateToProps: (state: Indexed) => {
                     return {
                         fieldValue: state?.user?.display_name
                     }
@@ -116,7 +122,7 @@ class ChangeUserDataPage extends Component {
             }),
             returnBtn: new Button({
                 attr: { type: 'button' },
-                text: 'Выйти',
+                text: 'Назад',
                 events: {
                     click: () => router.go('/profile'),
                 }
@@ -131,4 +137,4 @@ class ChangeUserDataPage extends Component {
     }
 }
 
-export default ChangeUserDataPage  
+export default ChangeUserDataPage

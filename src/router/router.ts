@@ -1,4 +1,4 @@
-import { IComponent } from "../components/Block";
+import { Component } from "../components/Block";
 import loginController from "../controllers/loginController";
 import Route from "./route";
 
@@ -18,9 +18,8 @@ class Router {
     this._rootQuery = rootQuery;
     Router.__instance = this;
   }
-  
-  use( path:string, pageClass:IComponent ) {
-    // let {path, pageClass} = componentAndRoute
+
+  use( path:string, pageClass:typeof Component ) {
     const route = new Route(path, pageClass, { rootQuery: this._rootQuery });
     console.log("use route", this._rootQuery, path);
     this.routes.push(route);
@@ -52,7 +51,7 @@ class Router {
     if (this._currentRoute) {
       this._currentRoute.leave();
     }
-    
+
     this._currentRoute = route;
 
     route.render();
@@ -68,4 +67,4 @@ class Router {
   }
 }
 
-export default Router; 
+export default Router;

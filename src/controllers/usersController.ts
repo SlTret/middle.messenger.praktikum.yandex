@@ -10,7 +10,7 @@ function prepareDataToRequest(data: object) {
 
 class UsersController {
 
-  private static __instance:UsersController
+  private static __instance: UsersController
   constructor() {
     if (UsersController.__instance) {
       return UsersController.__instance;
@@ -28,14 +28,14 @@ class UsersController {
       console.log("change avatar error", err)
     })
   }
-  
+
   public changeUserPassword(data: object) {
     return users.changeUserPassword(data).then(result => {
       console.log("change user password ", result.response)
-      if(result.response === "OK") {
+      if (result.response === "OK") {
         loginController.logout();
       }
-    }).catch((err:Error) => {
+    }).catch((err: Error) => {
       console.log("change user password", err)
     })
   }

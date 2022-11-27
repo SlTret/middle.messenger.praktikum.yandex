@@ -9,6 +9,7 @@ import loginController from '../../controllers/loginController';
 import { extendComponent } from '../../store/extendComponent';
 import { ModalWindow, WindowTypes } from '../../components/modalWindow/modalWindow';
 import chatsController from '../../controllers/chatsController';
+import { Indexed } from 'src/store/store';
 
 const router: Router = new Router();
 
@@ -21,7 +22,7 @@ class ChatPage extends Component {
         chatsController.getChats();
 
         props = {
-            tagName: "div",
+            tagName: "main",
             events: {
                 click: (e: Event) => {
                     const target = e.target as HTMLElement;
@@ -33,10 +34,10 @@ class ChatPage extends Component {
 
                                 const input = this.getContent().querySelector('.messages__input') as HTMLInputElement;
                                 if(!input)
-                                    return; 
-                                    
+                                    return;
+
                                 const msg = input.value;
-                                if(msg.length) { 
+                                if(msg.length) {
                                     chatsController.sendMessageToChat(this.props?.currentChat.id, { type: "message", content: msg })
                                 }
                             }
@@ -49,12 +50,14 @@ class ChatPage extends Component {
             modalWindow: modal,
             chats: [],
             logoutButton: new ImageButton({
+                altImage:"Выйти из учётной записи",
                 imageUrl: require('/src/components/imageButton/icons/logout.svg'),
                 events: {
                     click: () => loginController.logout(),
                 }
             }),
             addUser: new ImageButton({
+                altImage:"Добавить пользователя в чат",
                 imageUrl: require('/src/components/imageButton/icons/account-plus-outline.svg'),
                 events: {
                     click: () => {
@@ -64,6 +67,7 @@ class ChatPage extends Component {
                 }
             }),
             removeUser: new ImageButton({
+                altImage: "Удалить пользователя из чата",
                 imageUrl: require('/src/components/imageButton/icons/account-minus-outline.svg'),
                 events: {
                     click: () => {
@@ -73,6 +77,7 @@ class ChatPage extends Component {
                 }
             }),
             createChatBtn: new ImageButton({
+                altImage: "Добавить чат",
                 imageUrl: require('/src/components/imageButton/icons/chat-plus-outline.svg'),
                 events: {
                     click: () => {
@@ -119,7 +124,14 @@ class ChatPage extends Component {
     }
 }
 
-function mapStateToProps(state: any): any {
+interface ChatPageState {
+    messages?:object,
+    currentChat?:object,
+    userName?:string,
+    chats:[]
+}
+
+function mapStateToProps(state: Indexed): ChatPageState {
 
     let currentChat;
     state?.chats?.forEach((chat: any) => {
@@ -127,8 +139,6 @@ function mapStateToProps(state: any): any {
             currentChat = chat;
         }
     })
-
-    console.log("mapStateToProps chats", state?.chats);
 
     const chatId = state?.currentChatId;
     const messages = state?.messages ? state?.messages[chatId] : []
@@ -141,4 +151,4 @@ function mapStateToProps(state: any): any {
     };
 }
 
-export default extendComponent(ChatPage, mapStateToProps)  
+export default extendComponent(ChatPage, mapStateToProps)

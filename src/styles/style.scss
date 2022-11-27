@@ -1,16 +1,15 @@
 $font-primary: "Roboto";
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  font: 100% $font-primary;
-  background-color: rgb(243 243 243);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font: 100% $font-primary;
+    background-color: rgb(243 243 243);
 }

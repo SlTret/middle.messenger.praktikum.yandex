@@ -1,5 +1,5 @@
 import { isEqual } from '../utils/isEqual';
-import { Component, IComponent } from 'src/components/Block';
+import { Component } from 'src/components/Block';
 import { render } from '../utils/render';
 
 type Props = {
@@ -13,7 +13,7 @@ export default class Route {
     private _block: Component | null = null;
     private _props: Props
 
-    constructor(pathname: string, view: IComponent, props: Props) {
+    constructor(pathname: string, view: typeof Component, props: Props) {
         this._pathname = pathname;
         this._blockClass = view;
         this._props = props;
@@ -39,13 +39,10 @@ export default class Route {
     render() {
         if (!this._block) {
             this._block = new this._blockClass(this._props.props);
-
-            console.log("this._props.rootQuery", this._props.rootQuery)
-
             render(this._props.rootQuery, this._block);
             return;
         }
 
         this._block.show();
     }
-} 
+}

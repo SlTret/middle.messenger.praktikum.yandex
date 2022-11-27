@@ -1,17 +1,13 @@
 import { EventBus } from './EventBus';
 import { v4 as uuidv4 } from 'uuid';
+import { Indexed } from 'src/store/store';
 
 export interface MetaType {
     tagName: string;
     props: object
 }
 
-export type IComponent = typeof Component
-
-export type Props = { [key: string]: any }
-type TemplateFunction = (props: Props) => string
-
-export class Component extends EventBus {
+export class Component<Props extends Indexed = {}> extends EventBus {
     static EVENTS = {
         INIT: "init",
         FLOW_CDM: "flow:component-did-mount",
@@ -24,7 +20,7 @@ export class Component extends EventBus {
     _display = "";
     _meta: MetaType;
     props: { [key: string]: any }
-    children: { [key: string]: Component }
+    children: { [key: string]: Component<Props> }
 
     constructor(propsAndChildren = {}) {
 
@@ -54,7 +50,7 @@ export class Component extends EventBus {
         this.on(Component.EVENTS.FLOW_CDU, this._render.bind(this));
     }
 
-    compile(template: TemplateFunction, props = {}): DocumentFragment {
+    compile(template: (props: { [key: string]: string }) => string, props = {}): DocumentFragment {
         const propsAndStubs: { [key: string]: string } = { ...props };
 
         Object.entries(this.children).forEach(([key, child]) => {
@@ -101,7 +97,7 @@ export class Component extends EventBus {
     }
 
     _getChildren(propsAndChildren: object) {
-        const children: { [key: string]: Component } = {};
+        const children: { [key: string]: Component<Props> } = {};
         const props: { [key: string]: object | string } = {};
 
         Object.entries(propsAndChildren).forEach(([key, value]) => {
@@ -213,10 +209,12 @@ export class Component extends EventBus {
 
     show() {
         this.getContent().style.display =  this._display;
+        this.getContent().style.visibility = "visible";
     }
 
     hide() {
         this._display = this.getContent().style.display;
         this.getContent().style.display = "none";
+        this.getContent().style.visibility = "hidden";
     }
 }

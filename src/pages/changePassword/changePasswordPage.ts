@@ -10,13 +10,14 @@ import usersController from '../../controllers/usersController';
 
 const router = new Router();
 
+
 export class ChangePasswordPage extends Component {
 
     constructor(props = {}) {
 
         props = {
-            tagName: 'form',
-            avatar: new Avatar(),
+            tagName: 'main',
+            avatar: new Avatar({}),
             events: {
                 submit: (e: Event) => {
                     e.preventDefault();
@@ -54,7 +55,7 @@ export class ChangePasswordPage extends Component {
             }),
             returnBtn: new Button({
                 attr: { type: 'button' },
-                text: 'Выйти',
+                text: 'Назад',
                 events: { click: () => router.go("/profile") }
             }),
             ...props,

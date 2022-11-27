@@ -23,7 +23,7 @@ function prepareDataToRequest(data: any) {
 export class SignUpController {
   public async signUp(data: object) {
     try {
-      // Запускаем крутилку            
+      // Запускаем крутилку
 
       console.log("signup send data", JSON.stringify(data))
       const validateData = userLoginValidator(data);
@@ -49,4 +49,4 @@ export class SignUpController {
       // Логика обработки ошибок
     }
   }
-} 
+}

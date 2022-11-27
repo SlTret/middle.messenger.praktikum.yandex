@@ -1,7 +1,7 @@
 import { HTTP } from '../http/Http';
 import { BaseAPI } from './base-api';
 
-const usersAPIInstance = new HTTP('https://ya-praktikum.tech/api/v2/user');
+const usersAPIInstance = new HTTP('/user');
 
 export class UsersAPI extends BaseAPI {
 
@@ -16,5 +16,5 @@ export class UsersAPI extends BaseAPI {
     public changeUserPassword(data:object) {
         return usersAPIInstance.put('/password', data)
     }
-    
-  } 
+
+  }

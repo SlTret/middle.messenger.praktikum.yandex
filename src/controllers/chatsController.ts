@@ -83,7 +83,7 @@ class ChatsController {
     chats.getChats().then(result => {
       const chats = JSON.parse(result.response);
       if (chats) {
-       
+
         chats.forEach((chat:any)=>{
           store.set("chats", chats);
           this.getChatToken(chat.id)
