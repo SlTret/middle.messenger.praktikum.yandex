@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "description": "",
     "source": "src/index.html",
+    "browserslist": "> 0.5%, last 2 versions, not dead",
+    "engines": {
+        "node": "16.13.2"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "parcel src/index.html --no-cache && del-cli --force .parcel-cache ",
