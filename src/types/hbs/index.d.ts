@@ -6,3 +6,6 @@ declare module "*.hbs" {
   const content: TemplateFunction;
   export default content;
 }
+
+
+

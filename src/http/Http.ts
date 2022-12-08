@@ -69,13 +69,13 @@ export class HTTP {
       xhr.onload = function () {
         if (method == "GET") {
           if (xhr.status != 200) {
-            reject(new Error(`Ошибка ${xhr.status}: ${xhr.statusText}`))
+            reject(new Error(`Статус ${xhr.status} ${xhr.statusText || "нет описания"}`))
           } else {
             resolve(xhr);
           }
         } else {
           if (this.status == 404) {
-            reject(new Error(`Ошибка ${xhr.status}: ${xhr.statusText}`))
+            reject(new Error(`Статус ${xhr.status} ${xhr.statusText || "нет описания"}`))
           } else {
             resolve(xhr);
           }

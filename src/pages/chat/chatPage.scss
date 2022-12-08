@@ -16,7 +16,6 @@ $title-font-size: 30px;
 $search-focus: #04aa6d;
 $shadow-color:rgb(80 80 80);
 $dark-color: #757575;
-
 .chats__list {
   width: 100%;
   height: 100%;
@@ -27,7 +26,6 @@ $dark-color: #757575;
   align-items: flex-start;
   box-shadow: 0 5px 5px $shadow-color;
 }
-
 .chat {
   width: 100vw;
   height: 100vh;
@@ -36,11 +34,9 @@ $dark-color: #757575;
   justify-content: flex-start;
   align-items: flex-start;
 }
-
 .chat__items {
   width: 100%;
 }
-
 .chats {
   width: 30%;
   height: 100%;
@@ -52,7 +48,6 @@ $dark-color: #757575;
   box-shadow: 0 5px 5px $shadow-color;
   z-index: 1;
 }
-
 .chats__profile {
   width: 100%;
   height: 70px;
@@ -62,7 +57,6 @@ $dark-color: #757575;
   color: $chats;
   background-color: $chats-profile-background;
 }
-
 .search {
   height: 50px;
   width: 100%;
@@ -71,7 +65,6 @@ $dark-color: #757575;
   justify-content: flex-end;
   align-items: flex-end;
 }
-
 .search__input {
   width: 80%;
   height: 100%;
@@ -85,7 +78,6 @@ $dark-color: #757575;
   background-clip: padding-box;
   text-align: center;
 }
-
 .search__btn {
   width: 20%;
   height: 100%;
@@ -97,24 +89,20 @@ $dark-color: #757575;
   border-bottom: 1px solid $dark-color;
   background-color: #cac8c8;
 }
-
 .search__btn:hover {
   color: #fff;
   background-color: $dark-color;
   cursor: pointer;
 }
-
 .search__input::placeholder {
   color: $color-primary;
   opacity: 0.3;
 }
-
 .search__input:focus {
   outline: 0;
   border-bottom: 1px solid $search-focus;
   background-color: $background-primary;
 }
-
 .messages {
   width: 70%;
   height: 100%;
@@ -124,7 +112,6 @@ $dark-color: #757575;
   justify-content: center;
   align-items: flex-start;
 }
-
 .messages__profile {
   color: $chats;
   width: 100%;
@@ -134,7 +121,6 @@ $dark-color: #757575;
   justify-content: flex-start;
   background-color: $messages-prifile-background;
 }
-
 .messages__settings {
   width: 50%;
   height: 70px;
@@ -142,7 +128,6 @@ $dark-color: #757575;
   align-items: center;
   justify-content: flex-end;
 }
-
 .messages__user-info {
   width: 50%;
   height: 70px;
@@ -151,7 +136,6 @@ $dark-color: #757575;
   align-items: center;
   justify-content: flex-start;
 }
-
 .messages__list {
   width: 100%;
   height: calc(100% - 140px);
@@ -162,7 +146,6 @@ $dark-color: #757575;
   align-items: flex-start;
   word-wrap: break-word;
 }
-
 .messages__plane {
   width: 100%;
   height: 70px;
@@ -171,7 +154,6 @@ $dark-color: #757575;
   justify-content: flex-start;
   background-color: $messages-enter-background;
 }
-
 .messages__input {
   width: calc(100% - 120px);
   height: 70%;
@@ -185,12 +167,10 @@ $dark-color: #757575;
   background-clip: padding-box;
   text-align: center;
 }
-
 .messages__input:focus {
   outline: 0;
   background-color: $background-primary;
 }
-
 .action-btn {
   width: 60px;
   height: 100%;
@@ -202,7 +182,6 @@ $dark-color: #757575;
   border-top: 1px solid $dark-color;
   background-color: $chats-profile-background;
 }
-
 .action-btn:hover {
   color: #eee;
   background-color: $dark-color;

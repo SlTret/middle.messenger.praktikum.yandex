@@ -4,10 +4,10 @@ import  ChatPage from "./pages/chat/chatPage";
 import  ChangeUserDataPage from "./pages/changeUserData/changeUserDataPage";
 import { ProfilePage } from "./pages/profile/profilePage";
 import { ChangePasswordPage } from "./pages/changePassword/changePasswordPage";
-import Router from "./router/router";
+import router from "./router/router";
+import "./styles/style.scss"
+import { ErrorPage } from "./pages/error/errorPage";
 
-
-const router = new Router(".root");
 router
     .use("/", LoginPage)
     .use("/signup", RegistrationPage)
@@ -15,10 +15,5 @@ router
     .use("/profile", ProfilePage )
     .use("/settings", ChangeUserDataPage)
     .use("/change-password", ChangePasswordPage)
-//     // .use(routes.error)
+    .use("/error",ErrorPage)
     .start();
-
-
-
-
-

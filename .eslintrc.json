@@ -22,6 +22,16 @@
         "@typescript-eslint/no-unused-vars" : "warn",
         "@typescript-eslint/no-this-alias": "off",
         "@typescript-eslint/no-var-requires": "off",
-        "no-useless-escape": "off"
+        "no-useless-escape": "off",
+        "no-prototype-builtins":"off",
+        "@typescript-eslint/ban-types": [
+            "error",
+            {
+              "extendDefaults": true,
+              "types": {
+                "{}": false
+              }
+            }
+          ]
     }
 }

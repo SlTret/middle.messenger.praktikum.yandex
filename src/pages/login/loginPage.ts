@@ -6,9 +6,7 @@ import tpl from './loginPage.hbs';
 import './loginPage.scss';
 import { extendComponent } from '../../store/extendComponent';
 import loginController from '../../controllers/loginController';
-import Router from '../../router/router';
-
-const router = new Router(".root");
+import router from '../../router/router';
 
 class LoginPage extends Component {
 

@@ -2,7 +2,6 @@ $font-primary: "Roboto";
 $btn-text-white:#fff;
 $chats-profile-hovered: #4b9479;
 $chats-profile-background: #616161;
-
 .chats__profile-btn {
   width: 120px;
   height: 70px;
@@ -14,7 +13,6 @@ $chats-profile-background: #616161;
   border: none;
   font-size: 1rem;
 }
-
 .chats__profile-btn:hover {
   background-color: $chats-profile-background;
   cursor: pointer;

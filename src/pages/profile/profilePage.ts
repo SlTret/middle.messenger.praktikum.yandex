@@ -2,12 +2,10 @@ import { Button } from '../../components/button/button';
 import { Component } from '../../components/Block';
 import tpl from './profilePage.hbs';
 import './profilePage.scss';
-import Router from '../../router/router';
+import router from '../../router/router';
 import EditTextField from '../../components/editTextField/editTextField';
 import Avatar from '../../components/avatar/avatar';
 import { Indexed } from 'src/store/store';
-
-const router = new Router();
 
 export class ProfilePage extends Component {
 

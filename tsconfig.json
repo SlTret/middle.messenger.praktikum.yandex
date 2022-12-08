@@ -1,21 +1,22 @@
 {
-    "compilerOptions": {
-        "strict": true,
-        "declaration": true,
-        "module": "ES2020",
-        "target": "ES2020",
-        "isolatedModules": true,
-        "noImplicitAny": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "sourceMap": true,
-        "strictNullChecks": true,
-        "baseUrl": ".",
-        "paths": {
-            "*": [
-                "*",
-                "types/*"
-            ]
-        }
+  "compilerOptions": {
+      "strict": true,
+      "declaration": true,
+      "module": "ES2022",
+      "target": "ES2022",
+      "isolatedModules": true,
+      "noImplicitAny": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": false,
+      "sourceMap": true,
+      "strictNullChecks": true,
+      "baseUrl": ".",
+      "moduleResolution": "Node",
+      "paths": {
+        "*": [
+            "*",
+            "types/*"
+        ]
     }
+  }
 }

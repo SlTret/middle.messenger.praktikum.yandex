@@ -3,7 +3,6 @@ $color-primary: #333;
 $btn-text-white:#fff;
 $btn-green: #04aa6d;
 $background-primary:#fff;
-
 .text-field {
   width: 100%;
   background-color: $background-primary;
@@ -12,13 +11,11 @@ $background-primary:#fff;
   justify-content: center;
   align-items: flex-start;
 }
-
 .text-field__label {
   font-size: 0.9rem;
   margin: 10px 0 0;
   background-color: $background-primary;
 }
-
 .text-field__input {
   width: 100%;
   border: none;
@@ -32,22 +29,18 @@ $background-primary:#fff;
   background-color: $background-primary;
   background-clip: padding-box;
 }
-
 .text-field__input::placeholder {
   color: $color-primary;
   opacity: 0.3;
 }
-
 .text-field__input:focus {
   outline: 0;
   border-bottom: 1px solid #626363;
   background-color: $background-primary;
 }
-
 .text-field__input_invalid {
   border-bottom: 1px solid rgb(243 55 96);
 }
-
 .text-field__input_valid {
   border-bottom: 1px solid #04aa6d;
 }

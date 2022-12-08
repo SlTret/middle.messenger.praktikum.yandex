@@ -12,5 +12,3 @@ export class ImageButton extends Component {
         return this.compile(tpl, { text, imageUrl, altImage });
     }
 }
-
-

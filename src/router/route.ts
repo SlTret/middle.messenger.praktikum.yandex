@@ -45,4 +45,7 @@ export default class Route {
 
         this._block.show();
     }
+    pathname() {
+        return this._pathname
+    }
 }

@@ -4,13 +4,11 @@ import { Component } from '../../components/Block';
 import EditTextField from '../../components/editTextField/editTextField';
 import tpl from './changeUserDataPage.hbs';
 import './changeUserDataPage.scss';
-import Router from '../../router/router';
+import router from '../../router/router';
 import usersController from '../../controllers/usersController';
 import Avatar from '../../components/avatar/avatar';
 import { v4 as uuidv4 } from 'uuid';
 import { Indexed } from 'src/store/store';
-
-const router = new Router();
 
 interface Props extends Indexed {
   tagName?: string;

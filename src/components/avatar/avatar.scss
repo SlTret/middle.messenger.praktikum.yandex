@@ -1,7 +1,6 @@
 $white-color: #fff;
 $grey-color: #eee;
 $shadow-color:rgb(105 105 105);
-
 .avatar-conatiner {
   background-color: $grey-color;
   display: flex;
@@ -9,7 +8,6 @@ $shadow-color:rgb(105 105 105);
   justify-content: center;
   align-items: center;
 }
-
 .avatar-button {
   background-color: $white-color;
   border: none;
@@ -19,15 +17,12 @@ $shadow-color:rgb(105 105 105);
   border-radius: 120px;
   cursor: pointer;
 }
-
 .avatar-button:hover {
   box-shadow: 2 2 2px $shadow-color;
 }
-
 .avatar-button:active {
   box-shadow: 0 0 2px $shadow-color;
 }
-
 .avatar-image {
   width: 25px;
   height: 25px;
