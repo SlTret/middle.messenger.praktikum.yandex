@@ -1,9 +1,7 @@
 import { AuthAPI } from "../api/auth-api";
-import Router from "../router/router";
+import router from "../router/router";
 import store from "../store/store";
 
-
-const router = new Router(".root");
 
 const auth = new AuthAPI();
 const userLoginValidator = (data: any) => {

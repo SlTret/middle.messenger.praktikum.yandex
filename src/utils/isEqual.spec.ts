@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { isEqual } from "./isEqual";
 
-describe("isEqual usage", () => {
+describe("Проверяем isEqual", () => {
   it("string and string should return true", () => {
     assert.equal(isEqual("mocha", "mocha"), true);
   });

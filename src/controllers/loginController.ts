@@ -1,12 +1,8 @@
 import { AuthAPI } from "../api/auth-api";
-import Router from "../router/router";
+import router from "../router/router";
 import store from "../store/store";
 
-const router = new Router(".root");
-
 const userLoginValidator = (data: any) => {
-  //validateLoginFields(validateRules)
-
   return { isCorrect: true };
 }
 
@@ -51,8 +47,8 @@ class LoginController {
 
       return false;
 
-    }).catch((err) => {
-      console.log("error", err)
+    }).catch((err:Error) => {
+      console.log(err.message)
       return false;
     })
   }
@@ -68,7 +64,6 @@ class LoginController {
 
       data = prepareDataToRequest(data);
       auth.signin(data).then(result => {
-        console.log("login result", window.location.pathname, result.response)
         this.getUser().then(result => {
           if (result) {
             if( window.location.pathname == "/") {
@@ -78,8 +73,6 @@ class LoginController {
             }
           }
         });
-
-
       }).catch((reason) => {
         console.log("login error reason", reason)
       });

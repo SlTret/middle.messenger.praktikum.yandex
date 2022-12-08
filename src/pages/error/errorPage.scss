@@ -1,13 +1,11 @@
 $font-primary: "Roboto";
 $title-font-size: 30px;
 $small-font-size: 16px;
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 .error {
   width: 100vw;
   height: 100vh;
@@ -16,11 +14,9 @@ $small-font-size: 16px;
   align-items: center;
   display: flex;
 }
-
 .error__text {
   font: $title-font-size $font-primary;
 }
-
 .error__message {
   font: $small-font-size $font-primary;
 }

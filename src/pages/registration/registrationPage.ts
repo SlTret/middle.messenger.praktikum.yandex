@@ -5,13 +5,12 @@ import { TextInput } from '../../components/textInput/textInput';
 import tpl from './registrationPage.hbs';
 import './registrationPage.scss';
 import { SignUpController } from '../../controllers/signUpController';
-import Router from "../../router/router";
+import router from "../../router/router";
 
 
 export class RegistrationPage extends Component {
 
     signupController:SignUpController = new SignUpController();
-    _router = new Router();
     constructor(props : Record<string, string | object>) {
 
         props = {
@@ -34,7 +33,7 @@ export class RegistrationPage extends Component {
                 attr: { type: 'button', href: 'chat' },
                 text: 'Войти',
                 events: {
-                    click: () => this._router.go("/")
+                    click: () => router.go("/")
                 }
             }),
             emailTextInput: new TextInput({ header: "Почта", name: "email", placeholder: "Введите email", type: "text", pattern: patterns.email }),

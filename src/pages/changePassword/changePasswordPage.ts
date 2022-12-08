@@ -4,12 +4,9 @@ import { Component } from '../../components/Block';
 import EditTextField from '../../components/editTextField/editTextField';
 import tpl from './changePasswordPage.hbs';
 import './changePasswordPage.scss';
-import Router from '../../router/router';
+import router from '../../router/router';
 import Avatar from '../../components/avatar/avatar';
 import usersController from '../../controllers/usersController';
-
-const router = new Router();
-
 
 export class ChangePasswordPage extends Component {
 

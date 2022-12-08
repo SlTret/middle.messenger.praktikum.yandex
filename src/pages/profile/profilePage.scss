@@ -3,13 +3,11 @@ $color-primary: #333;
 $background-primary: #fff;
 $buttons-color: #04aa6d;
 $title-font-size: 30px;
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 .profile {
   width: 600px;
   height: 800px;
@@ -20,7 +18,6 @@ $title-font-size: 30px;
   align-items: center;
   box-shadow: 0 0 2px rgb(105 105 105);
 }
-
 .profile__btns {
   width: 100%;
   height: 130px;
@@ -30,7 +27,6 @@ $title-font-size: 30px;
   align-items: center;
   display: flex;
 }
-
 .profile__title {
   width: 100%;
   height: 200px;
@@ -42,7 +38,6 @@ $title-font-size: 30px;
   color: $font-primary;
   font-size: $title-font-size;
 }
-
 .profile__info {
   width: 80%;
   height: 450px;

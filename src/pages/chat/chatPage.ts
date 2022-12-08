@@ -3,15 +3,13 @@ import { Component } from '../../components/Block';
 import { ChatItem } from '../../components/chatItem/chatItem';
 import tpl from './chatPage.hbs';
 import './chatPage.scss';
-import Router from '../../router/router';
+import router from '../../router/router';
 import { ImageButton } from '../../components/imageButton/imageButton';
 import loginController from '../../controllers/loginController';
 import { extendComponent } from '../../store/extendComponent';
 import { ModalWindow, WindowTypes } from '../../components/modalWindow/modalWindow';
 import chatsController from '../../controllers/chatsController';
 import { Indexed } from 'src/store/store';
-
-const router: Router = new Router();
 
 class ChatPage extends Component {
 

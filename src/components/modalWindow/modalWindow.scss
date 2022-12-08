@@ -1,5 +1,4 @@
 $shadow-color:rgb(105 105 105);
-
 .modal {
   position: fixed;
   left: 0;
@@ -13,7 +12,6 @@ $shadow-color:rgb(105 105 105);
   align-items: center;
   background-color: rgb(105 105 105 / 40%);
 }
-
 .create-chat {
   padding: 20px;
   width: 400px;
@@ -25,7 +23,6 @@ $shadow-color:rgb(105 105 105);
   background-color: #eee;
   box-shadow: 0 0 2px $shadow-color;
 }
-
 .add-user {
   padding: 20px;
   width: 400px;
@@ -37,7 +34,6 @@ $shadow-color:rgb(105 105 105);
   background-color: #eee;
   box-shadow: 0 0 2px $shadow-color;
 }
-
 .remove-user {
   padding: 20px;
   width: 400px;
