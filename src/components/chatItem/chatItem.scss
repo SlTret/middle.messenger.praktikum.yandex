@@ -1,13 +1,33 @@
 $chats-item_background:#4b9479;
 $chats: #fff;
+$dark-color: #757575;
+$light-color: #eee;
 
-.chats__item {
+.chat__item {
   width: 100%;
   height: 70px;
   background-color: $chats-item_background;
-  margin-bottom: 2px;
+  border-bottom: 1px solid $light-color;
   color: $chats;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
+}
+
+.chat__item_select {
+  width: 100%;
+  height: 70px;
+  background-color: $dark-color;
+  border-bottom: 1px solid $light-color;
+  color: $chats;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.chat__name {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }

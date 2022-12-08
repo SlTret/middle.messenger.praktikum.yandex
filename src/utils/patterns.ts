@@ -6,5 +6,6 @@ export const patterns = Object.freeze({
     secondName: "^[А-ЯЁA-Z][a-zA-Zа-яёА-ЯЁ]{3,20}$",
     phone: "^[\+]?[0-9]{10,15}$",
     chatName: "^[a-zA-Zа-яёА-ЯЁ_-]{3,20}$",
-    message: ".*\\S.*"
+    message: ".*\\S.*",
+    numbers:"^[0-9]+$",
 });

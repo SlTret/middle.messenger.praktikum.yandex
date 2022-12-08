@@ -1,15 +1,13 @@
 import { EventBus } from './EventBus';
 import { v4 as uuidv4 } from 'uuid';
+import { Indexed } from 'src/store/store';
 
-interface MetaType {
+export interface MetaType {
     tagName: string;
     props: object
 }
 
-type Props = { [key: string]: string }
-type TemplateFunction = (props: Props) => string
-
-export class Component extends EventBus {
+export class Component<Props extends Indexed = {}> extends EventBus {
     static EVENTS = {
         INIT: "init",
         FLOW_CDM: "flow:component-did-mount",
@@ -17,17 +15,19 @@ export class Component extends EventBus {
         FLOW_CDU: "flow:component-did-update",
     };
 
-    _element: HTMLElement;
+    _element?: HTMLElement;
     _id: string;
+    _display = "";
     _meta: MetaType;
-    props: { [key: string]: object | string }
-    children: { [key: string]: Component }
+    props: { [key: string]: any }
+    children: { [key: string]: Component<Props> }
 
-    constructor(tagName = "div", propsAndChildren = {}) {
+    constructor(propsAndChildren = {}) {
 
         super();
 
         const { children, props } = this._getChildren(propsAndChildren);
+        const tagName: string = props.tagName as string;
 
         this.children = children;
 
@@ -50,7 +50,7 @@ export class Component extends EventBus {
         this.on(Component.EVENTS.FLOW_CDU, this._render.bind(this));
     }
 
-    compile(template: TemplateFunction, props = {}): DocumentFragment {
+    compile(template: (props: { [key: string]: string }) => string, props = {}): DocumentFragment {
         const propsAndStubs: { [key: string]: string } = { ...props };
 
         Object.entries(this.children).forEach(([key, child]) => {
@@ -74,11 +74,16 @@ export class Component extends EventBus {
     _addArrtibutes() {
         const { attr = {} } = { ...this.props };
         Object.entries(attr).forEach(([key, value]) => {
-            this._element.setAttribute(key, value as string);
+            if (this._element)
+                this._element.setAttribute(key, value as string);
         });
     }
 
     _render() {
+
+        if (!this._element)
+            throw new Error("No component element");
+
         const fragment = this.render();
         // this._removeEvents();
         this._element.innerHTML = '';
@@ -92,7 +97,7 @@ export class Component extends EventBus {
     }
 
     _getChildren(propsAndChildren: object) {
-        const children: { [key: string]: Component } = {};
+        const children: { [key: string]: Component<Props> } = {};
         const props: { [key: string]: object | string } = {};
 
         Object.entries(propsAndChildren).forEach(([key, value]) => {
@@ -193,7 +198,7 @@ export class Component extends EventBus {
                 throw new Error('Отказано в доступе');
             },
         });
-        
+
         return props;
     }
 
@@ -203,10 +208,13 @@ export class Component extends EventBus {
     }
 
     show() {
-        this.getContent().style.display = "block";
+        this.getContent().style.display =  this._display;
+        this.getContent().style.visibility = "visible";
     }
 
     hide() {
+        this._display = this.getContent().style.display;
         this.getContent().style.display = "none";
+        this.getContent().style.visibility = "hidden";
     }
 }
